@@ -94,7 +94,7 @@ On a long term basis this should not be more than 1 TB in your /work/project/XXX
  
  Open an interactive SLURM session and parallely gzip compress all files with defined ending 
  
-     > srun - p slim18 -I -c 36 --pty /bin/bash
+     > srun -p slim18 -I -c 36 --pty /bin/bash
      > CORES=$(grep -c '^processor' /proc/cpuinfo)
      > find . -type f -name '*.fastq' -print0 | xargs -0 -n 1 -P $CORES gzip
  
