@@ -59,6 +59,10 @@ available packages are listed using
   
     > module load ngs/RSEM/1.2.31
 
+### Private software installs - Conda
+
+In addition to the executables provided by the module system, you can of course install software privately, i.e. in one of your directories. A very convenient way for keeping private installs organized is Conda. If you want to create reproducible pipelines, Conda is actually preferred to modules. Miniconda (<https://docs.conda.io/en/latest/miniconda.html>) is the preferred package for private installation on the cluster. 
+
 ### R
 
 R packages have to be installed into private repositories. In other words, the users are responsible for keeping track on their R libraries. Installation into private repositories will happen by default upon calling `install.packages`. Please make sure that you purge your repository if you switch R version.
