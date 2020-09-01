@@ -85,7 +85,7 @@ options are `scp` on all linux/unix , mounting the cluster volume on the client 
 ## Etiquette
 ### Saving disk space
  
-Only files, which are part of active processing schemes should be stored on the cluster. At present users are supposed not tho exceed 2 TB disc space. 
+Only files, which are part of active processing schemes should be stored on the cluster. At present users are supposed not to exceed 2 TB disc space. 
  
 #### How much disk space do I occupy? 
 go the the directory of interest and issue
