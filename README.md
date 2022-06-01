@@ -11,7 +11,7 @@ Only the master node has connection to the outside world. Jobs running on comput
 
 ## Cluster login
 
-Connection to the master node is only possible via **ssh**. An LRZ **VPN** tunnel (https://www.lrz.de/services/netz/mobil/vpn_en/) has to be used in case of client being located outside the BMC.
+Connection to the master node is only possible via **ssh**. An LRZ **VPN** tunnel ([https://www.lrz.de/services/netz/mobil/vpn_en/](https://doku.lrz.de/display/PUBLIC/VPN+-+eduVPN+-+Installation+und+Konfiguration)) has to be used in case of client being located outside the BMC. You have to choose the **"Full-Tunnel"** in eduVPN profile to connect. 
 
 How to connect without having to provide a password every time:  <https://www.tecmint.com/ssh-passwordless-login-using-ssh-keygen-in-5-easy-steps/>
 
