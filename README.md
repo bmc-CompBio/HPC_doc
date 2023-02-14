@@ -92,7 +92,7 @@ go the the directory of interest and issue
     
     >  du -sh .
     
-On a long term basis this should not be more than 1 TB in your /work/project/XXX directory.
+On a long term basis this should not be more than 100 GB in your /work/project/XXX directory.
  
 #### Compress fastq and similar (bed, wiggle..)  files 
  
