@@ -69,11 +69,11 @@ Go back to the main folder:
 
 For monomer:
 
-	> sbatch run_alphafold.sh  -f ./fasta_in/ yourproteinname.fasta
+	> sbatch run_alphafold.sh  -f ./fasta_in/yourproteinname.fasta
 
 For multimer: 
 
-	> sbatch run_alphafold.sh  -f ./fasta_in/ yourproteinname.fasta -m multimer 
+	> sbatch run_alphafold.sh  -f ./fasta_in/yourproteinname.fasta -m multimer 
 
 
 Other optional parameters can be found at the end of this document.
