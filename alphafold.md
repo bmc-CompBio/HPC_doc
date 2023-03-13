@@ -37,6 +37,10 @@ setup conda environment
 	> conda install -y -c bioconda hmmer==3.3.2 hhsuite==3.3.0 kalign2==2.04
 	> pip install absl-py==1.0.0 biopython==1.79 chex==0.0.7 dm-haiku==0.0.9 dm-tree==0.1.6 immutabledict==2.0.0 jax==0.3.25 ml-collections==0.1.0 numpy==1.21.6 scipy==1.7.0 tensorflow==2.11.0 pandas==1.3.4 tensorflow-cpu==2.11.0
 	> pip install --upgrade jax==0.3.25 jaxlib==0.3.25+cuda11.cudnn805 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+	> pip install --upgrade nvidia-tensorrt
+
+	> ln -s ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer.so.8 ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer.so.7
+	> ln -s ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer_plugin.so.8 ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer_plugin.so.7
 
 ## running alphafold 
 
