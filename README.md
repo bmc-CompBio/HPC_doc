@@ -73,7 +73,7 @@ Data processing should exclusively performed on computation nodes using the SLUR
  
 ## Data storage
  
-A fast file system is mounted on all nodes (/work). The project directories located in here (`/work/projects/`) are the primary location for private data storage.  **Do not use the home directory on the master node (` ~/.` ) for storing data**. If you fetch data from SRA make sure the cache directory is placed in your project directory on the fast file system and not in your home directory which will be set by default (<https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration>).
+A fast file system is mounted on all nodes (/work). The project directories located in here (`/work/project/`) are the primary location for private data storage.  **Do not use the home directory on the master node (` ~/.` ) for storing data**. If you fetch data from SRA make sure the cache directory is placed in your project directory on the fast file system and not in your home directory which will be set by default (<https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration>).
 
 There is **no backup** system for the data stored on the cluster. 
 
