@@ -39,14 +39,14 @@ setup conda environment
 	> pip install --upgrade jax==0.3.25 jaxlib==0.3.25+cuda11.cudnn805 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 	> pip install --upgrade nvidia-tensorrt
 
-	> ln -s ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer.so.8 ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer.so.7
-	> ln -s ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer_plugin.so.8 ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer_plugin.so.7
+	> ln -s ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer.so.8 ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt_libs/libnvinfer.so.7
+	> ln -s ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt/libnvinfer_plugin.so.8 ${CONDA_PREFIX}/lib/python3.8/site-packages/tensorrt_libs/libnvinfer_plugin.so.7
 
 ## running alphafold 
 
 activate conda environment
 
-	> conda activate alphafold_v2.3
+	> conda activate alphafold_v2
 
 You need to create a fasta file for the amino acid sequence that you want to submit. There is a .fasta file for ‘14-3-3’ provided in the folder to serve as test example.
 
