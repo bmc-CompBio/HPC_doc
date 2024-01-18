@@ -66,12 +66,12 @@ you will get standard output like this
 	[I 2024-01-18 13:23:25.186 ServerApp] notebook_shim | extension was successfully loaded.
 	[I 2024-01-18 13:23:25.188 ServerApp] jupyter_lsp | extension was successfully loaded.
 	[I 2024-01-18 13:23:25.189 ServerApp] jupyter_server_terminals | extension was successfully loaded.
-	[I 2024-01-18 13:23:25.198 LabApp] JupyterLab extension loaded from /home/tobiasst/miniconda3/envs/sc_jupyter/lib/python3.11/site-packages/jupyterlab
-	[I 2024-01-18 13:23:25.198 LabApp] JupyterLab application directory is /home/tobiasst/miniconda3/envs/sc_jupyter/share/jupyter/lab
+	[I 2024-01-18 13:23:25.198 LabApp] JupyterLab extension loaded from /home/user/miniconda3/envs/sc_jupyter/lib/python3.11/site-packages/jupyterlab
+	[I 2024-01-18 13:23:25.198 LabApp] JupyterLab application directory is /home/user/miniconda3/envs/sc_jupyter/share/jupyter/lab
 	[I 2024-01-18 13:23:25.199 LabApp] Extension Manager is 'pypi'.
 	[I 2024-01-18 13:23:25.201 ServerApp] jupyterlab | extension was successfully loaded.
 	[I 2024-01-18 13:23:25.204 ServerApp] notebook | extension was successfully loaded.
-	[I 2024-01-18 13:23:25.205 ServerApp] Serving notebooks from local directory: /work/project/tobias/jupyter_test/scJupyter
+	[I 2024-01-18 13:23:25.205 ServerApp] Serving notebooks from local directory: /work/project/user/jupyter_test/scJupyter
 	[I 2024-01-18 13:23:25.205 ServerApp] Jupyter Server 2.12.5 is running at:
 	[I 2024-01-18 13:23:25.205 ServerApp] http://gpu01:8888/tree?token=73d138c645a3f74dffef7e59b9ffb8fa01875416b66330de
 	[I 2024-01-18 13:23:25.205 ServerApp]     http://127.0.0.1:8888/tree?token=73d138c645a3f74dffef7e59b9ffb8fa01875416b66330de
@@ -79,7 +79,7 @@ you will get standard output like this
 	[C 2024-01-18 13:23:25.226 ServerApp] 
 	    
 	    To access the server, open this file in a browser:
-	        file:///home/tobiasst/.local/share/jupyter/runtime/jpserver-46610-open.html
+	        file:///home/user/.local/share/jupyter/runtime/jpserver-46610-open.html
 	    Or copy and paste one of these URLs:
 	        http://gpu01:8888/tree?token=73d138c645a3f74dffef7e59b9ffb8fa01875416b66330de
 	        http://127.0.0.1:8888/tree?token=73d138c645a3f74dffef7e59b9ffb8fa01875416b66330de
