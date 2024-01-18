@@ -43,7 +43,7 @@ Create a launch script called e.g. jupyter.sh with the following content and sav
 
 ## Startup Jupyter Notebook on an HPC node
 
-Cd into your working directory and issue
+On the master node cd into your working directory and issue
 
 	srun -p <partition> --pty jupyter.sh
 
