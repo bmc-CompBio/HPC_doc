@@ -73,7 +73,7 @@ Data processing should exclusively performed on computation nodes using the SLUR
 
 ## Jupyter Notebook
 
-Instructions on how to run Jupyter Notebook on the cluster can be found here <https://github.com/bmc-CompBio/HPC_doc/jupyter_notebook.md>
+Instructions on how to run Jupyter Notebook on the cluster can be found here <https://github.com/bmc-CompBio/HPC_doc/blob/master/jupyter_notebook.md>
 
 ## Data storage
  
