@@ -70,7 +70,11 @@ R packages have to be installed into private repositories. In other words, the u
 ## SLURM
 
 Data processing should exclusively performed on computation nodes using the SLURM job scheduler. For a simple introduction see <https://github.com/bmc-CompBio/SLURM>
- 
+
+## Jupyter Notebook
+
+Instructions on how to run Jupyter Notebook on the cluster can be found here <https://github.com/bmc-CompBio/HPC_doc/jupyter_notebook.md>
+
 ## Data storage
  
 A fast file system is mounted on all nodes (/work). The project directories located in here (`/work/projects/`) are the primary location for private data storage.  **Do not use the home directory on the master node (` ~/.` ) for storing data**. If you fetch data from SRA make sure the cache directory is placed in your project directory on the fast file system and not in your home directory which will be set by default (<https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration>).
