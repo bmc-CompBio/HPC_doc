@@ -14,7 +14,7 @@ e.g defined in a yaml file env.yaml that contains
  	 - python
   	 - jupyter
   	 - pandas<2.0
-         - matplotlib<3.7
+  	 - matplotlib<3.7
   	 - scipy
   	 - r
   	 - rpy2
