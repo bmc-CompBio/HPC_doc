@@ -13,7 +13,8 @@ e.g defined in a yaml file env.yaml that contains
 	dependencies:
  	 - python
   	 - jupyter
-  	 - pandas
+  	 - pandas<2.0
+         - matplotlib<3.7
   	 - scipy
   	 - r
   	 - rpy2
