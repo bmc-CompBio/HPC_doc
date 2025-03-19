@@ -1,5 +1,9 @@
 # bmc-HPC Handbook
 
+Welcome to the BMC HPC. 
+
+First things first: Your user account will be deleted together with all files on the fast file system (mount point /work) as soon as you can no longer be reached by e-mail (address used when applying for the account). There will be no warnings, it will happen.
+
 ## Cluster layout
 
 ![](./HPC_structure.png)
@@ -79,7 +83,7 @@ Instructions on how to run Jupyter Notebook on the cluster can be found here <ht
  
 A fast file system is mounted on all nodes (/work). The project directories located in here (`/work/projects/`) are the primary location for private data storage.  **Do not use the home directory on the master node (` ~/.` ) for storing data**. If you fetch data from SRA make sure the cache directory is placed in your project directory on the fast file system and not in your home directory which will be set by default (<https://github.com/ncbi/sra-tools/wiki/Toolkit-Configuration>).
 
-There is **no backup** system for the data stored on the cluster. 
+There is **no backup** system for the data stored on the cluster. Furthermore, in case of emergency, all your files might be deleted, make sure that you always have local copies of your data.  
 
 ## File transfer
 
