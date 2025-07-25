@@ -87,7 +87,7 @@ There is **no backup** system for the data stored on the cluster. Furthermore, i
 
 ## File transfer
 
-options are `scp` on all linux/unix , mounting the cluster volume on the client with `sshfs` on OSX.
+options are `scp` or `rsync` on all linux/unix , mounting the cluster volume on the client with `sshfs` on OSX. Drag & dropping files from oxfuse mounts leads to inefficient transfers via `sshfs`.
 
 
 ## Etiquette
