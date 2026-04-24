@@ -27,7 +27,9 @@ Operating system: CentOS Linux
 ## Software
 ### Module system
 
-Bioinformatics software is made available to the cluster using the Linux module environment. I.e. the executables are nor in your PATH by default, instead they have to be explicitly acitvated. This has to happen on both the master and the computation nodes. A major advantage of such a system is the co-existence of different versions of the same software. 
+> **Note:** The module system has not been maintained for several years. Users are strongly advised to perform private software installs (see Conda section below) rather than relying on modules.
+
+Bioinformatics software is made available to the cluster using the Linux module environment. I.e. the executables are not in your PATH by default, instead they have to be explicitly activated. This has to happen on both the master and the computation nodes. A major advantage of such a system is the co-existence of different versions of the same software.
 
 more info here: <http://modules.sourceforge.net>
 
@@ -63,9 +65,110 @@ available packages are listed using
   
     > module load ngs/RSEM/1.2.31
 
-### Private software installs - Conda
+### Private software installs - Conda / Mamba (Miniforge)
 
-In addition to the executables provided by the module system, you can of course install software privately, i.e. in one of your directories. A very convenient way for keeping private installs organized is Conda. If you want to create reproducible pipelines, Conda is actually preferred to modules. Miniconda (<https://docs.conda.io/en/latest/miniconda.html>) is the preferred package for private installation on the cluster. 
+Conda is the recommended way to install software privately on the cluster. The preferred setup uses **Miniforge**, which ships with conda-forge as the default channel and includes the fast `libmamba` solver. This avoids channel conflicts and the libmamba/conda version mismatches that occur with Miniconda on CentOS 7 (glibc 2.17).
+
+**Target layout:**
+
+| Component | Path |
+|-----------|------|
+| Base | `/work/project/<user>/miniforge3` |
+| Environments | `/work/project/<user>/conda/envs` |
+| Package cache | `/work/project/<user>/conda/pkgs` |
+
+#### 1. Clean any previous conda install
+
+```bash
+sed -i '/# >>> conda initialize >>>/,/# <<< conda initialize <<</d' ~/.bashrc
+exec bash -l
+which conda   # should return nothing
+```
+
+#### 2. Install Miniforge
+
+```bash
+cd ~/tmp
+wget https://github.com/conda-forge/miniforge/releases/download/24.1.2-0/Miniforge3-24.1.2-0-Linux-x86_64.sh
+bash Miniforge3-24.1.2-0-Linux-x86_64.sh -b -p /work/project/tobias/miniforge3
+
+/work/project/tobias/miniforge3/bin/conda --version
+```
+
+#### 3. Configure conda
+
+```bash
+cat > ~/.condarc <<'EOF'
+channels:
+  - conda-forge
+  - bioconda
+channel_priority: strict
+envs_dirs:
+  - /work/project/tobias/conda/envs
+pkgs_dirs:
+  - /work/project/tobias/conda/pkgs
+EOF
+
+mkdir -p /work/project/tobias/conda/envs
+mkdir -p /work/project/tobias/conda/pkgs
+```
+
+#### 4. Initialize shell
+
+```bash
+/work/project/tobias/miniforge3/bin/conda init bash
+exec bash -l
+
+which conda
+conda info
+```
+
+Expected output confirms:
+- `base environment: /work/project/tobias/miniforge3`
+- `envs directories: /work/project/tobias/conda/envs`
+- `package cache: /work/project/tobias/conda/pkgs`
+
+#### 5. Verify solver stack
+
+```bash
+conda list | egrep '^(conda|mamba|libmamba|libmambapy)'
+mamba --version
+```
+
+All packages must come from `conda-forge` and be version-aligned.
+
+#### 6. Create a test environment
+
+```bash
+mamba create -y -n test python=3.11 samtools
+conda env list
+```
+
+#### Environment YAML rules
+
+Always specify `conda-forge` and `bioconda` as channels. **Never use `defaults`.**
+
+```yaml
+name: example
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - python=3.11
+  - bowtie2>=2.5
+  - samtools>=1.18
+```
+
+- Pin the Python version (`python=3.11`)
+- Use `>=` for tools rather than exact version pins
+- Avoid legacy strict pins (e.g. `sra-tools=2.11.0`); prefer `sra-tools>=3`
+
+#### Operational rules
+
+- Keep the base environment minimal — conda and mamba only
+- **Do NOT run** `conda update --all`
+- **Do NOT mix channels** — use conda-forge and bioconda exclusively
+- Always use `mamba` (not `conda`) for creating and installing into environments
 
 ### R
 
@@ -110,6 +213,15 @@ On a long term basis this should not be more than 100 GB in your /work/project/X
      > CORES=$(grep -c '^processor' /proc/cpuinfo)
      > find . -type f -name '*.fastq' -print0 | xargs -0 -n 1 -P $CORES gzip
  
+#### Avoid fasterq-dump
+
+**Do not use `fasterq-dump` on the cluster.** It creates large numbers of temporary files simultaneously and overloads the BeeGFS file system (`/work`). Use `prefetch` followed by `fastq-dump` instead:
+
+```bash
+prefetch <SRR_ID>
+fastq-dump --split-files --gzip <SRR_ID>
+```
+
 #### Purge the SRA cache directory
 
  Run `cache-mgr -c` to empty your ncbi/sra directory 
