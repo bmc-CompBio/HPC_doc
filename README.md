@@ -90,9 +90,9 @@ which conda   # should return nothing
 ```bash
 cd ~/tmp
 wget https://github.com/conda-forge/miniforge/releases/download/24.1.2-0/Miniforge3-24.1.2-0-Linux-x86_64.sh
-bash Miniforge3-24.1.2-0-Linux-x86_64.sh -b -p /work/project/tobias/miniforge3
+bash Miniforge3-24.1.2-0-Linux-x86_64.sh -b -p /work/project/<user>/miniforge3
 
-/work/project/tobias/miniforge3/bin/conda --version
+/work/project/<user>/miniforge3/bin/conda --version
 ```
 
 #### 3. Configure conda
@@ -104,19 +104,19 @@ channels:
   - bioconda
 channel_priority: strict
 envs_dirs:
-  - /work/project/tobias/conda/envs
+  - /work/project/<user>/conda/envs
 pkgs_dirs:
-  - /work/project/tobias/conda/pkgs
+  - /work/project/<user>/conda/pkgs
 EOF
 
-mkdir -p /work/project/tobias/conda/envs
-mkdir -p /work/project/tobias/conda/pkgs
+mkdir -p /work/project/<user>/conda/envs
+mkdir -p /work/project/<user>/conda/pkgs
 ```
 
 #### 4. Initialize shell
 
 ```bash
-/work/project/tobias/miniforge3/bin/conda init bash
+/work/project/<user>/miniforge3/bin/conda init bash
 exec bash -l
 
 which conda
@@ -124,9 +124,9 @@ conda info
 ```
 
 Expected output confirms:
-- `base environment: /work/project/tobias/miniforge3`
-- `envs directories: /work/project/tobias/conda/envs`
-- `package cache: /work/project/tobias/conda/pkgs`
+- `base environment: /work/project/<user>/miniforge3`
+- `envs directories: /work/project/<user>/conda/envs`
+- `package cache: /work/project/<user>/conda/pkgs`
 
 #### 5. Verify solver stack
 
